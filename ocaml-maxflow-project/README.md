@@ -2,10 +2,11 @@ Ocaml project on Ford-FUlkerson.
 
 Features implemented in the project: 
 -Ford-Fulkerson algorithm which can be applied on graph to find max flow from one node to another
--Resolution of Bipartite Matching (unweighted) using Ford-Fulkerson with input files that are easier for the user, as well as an interpretation of the output 
+-Resolution of Bipartite Matching (unweighted) using Ford-Fulkerson with input files that are easier for the user, as well as an interpretation of the output
+-Dijkstra algorithm to find shortest path 
 
 What has yet to be implemented:
--Max Flow min Cost algorithm using Bellman Ford to find negative cycles
+-Max Flow min Cost algorithm using successive shortest path due to issue with compatibility with (int*int) graph
 -Using this same algorithm to resolve weighted Bipartite matching (to account for user's preferences)
 
 How to use the project: 

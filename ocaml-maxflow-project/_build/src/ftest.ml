@@ -1,6 +1,7 @@
 open Gfile
 open Tools
 open Algorithms
+open Graph
 
 let () =
 
@@ -27,10 +28,18 @@ let () =
       and graph = from_file infile in
       ford (gmap graph int_of_string) _source _sink
     |"2"-> Printf.printf "Vous avez choisi le mode bipartite matching. Très bon choix!\n%!"; 
-    let graph = input_file infile in
+      let graph = input_file infile in
       let ngraph=ford graph (-1) 0 in
       interpret ngraph;
       ngraph 
+    |"3" -> Printf.printf "Vous avez choisi le monde max flow min cost. Très bon choix \n%!";
+      let graph=add_arc (add_arc (add_arc (new_node (new_node (new_node empty_graph 0) 1) 2) 0 1 1) 0 2 4) 1 2 1 in
+      let ngraph=gmap graph (fun a-> (a,a)) 
+      and
+      _source = int_of_string Sys.argv.(4)
+      and _sink = int_of_string Sys.argv.(5) in
+      testp ngraph _source _sink;
+      graph
     |_  -> Printf.printf "This mode does not exist yet!\n%!"; exit 0
   in
   let () = export outfile (gmap processing string_of_int)
